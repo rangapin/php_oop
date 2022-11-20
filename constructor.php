@@ -1,30 +1,20 @@
-<?php 
+<?php
 
-class User {
+//A constructor allows you to initialize an object's properties upon creation of the object.
 
-  public $username;
-  public $email;
 
-  public function __construct($username, $email){
-    //$this->username = 'sam';
-    $this->username = $username;
-    $this->email = $email;
+class Fruit {
+  public $name;
+  public $color;
+
+  function __construct($name) {
+    $this->name = $name;
   }
-
-  public function addFriend(){
-    //return "added a new friend";
-    return "$this->username just added a new friend";
+  function get_name() {
+    return $this->name;
   }
-
 }
 
-$userOne = new User('Rich', 'rich@gmail.com');
-$userTwo = new User('Sam', 'sam@gmail.com');
-
-echo $userOne->username . '<br>';
-echo $userOne->email . '<br>';
-echo $userOne->addFriend() . '<br>';
-
-echo $userTwo->username . '<br>';
-echo $userTwo->email . '<br>';
-echo $userTwo->addFriend() . '<br>';
+$apple = new Fruit("Apple");
+echo $apple->get_name();
+?>

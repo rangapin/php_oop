@@ -1,50 +1,26 @@
-<?php 
+<?php
 
-  class User {
+//Inheritance in OOP = When a class derives from another class.
 
-    public $username;
-    private $email;
-
-    public function __construct($username, $email){
-      //$this->username = 'sam';
-      $this->username = $username;
-      $this->email = $email;
-    }
-
-    public function addFriend(){
-      //return "added a new friend";
-      return "$this->username just added a new friend";
-    }
-
-    // getters
-    public function getEmail(){
-      return $this->email;
-    }
-
-    // setters
-    public function setEmail($username){
-      if(strpos($username, '@') > -1){
-        $this->email = $username;
-      };
-    }
-
+class Fruit {
+  public $name;
+  public $color;
+  public function __construct($name, $color) {
+    $this->name = $name;
+    $this->color = $color;
   }
-
-  class AdminUser extends User {
-
-    public $level;
-
-    public function __construct($username, $email, $level){
-      parent::__construct($username, $email);
-      $this->level = $level; 
-    }
-
+  public function intro() {
+    echo "The fruit is {$this->name} and the color is {$this->color}.";
   }
+}
 
-  $userOne = new User('Rich', 'rich@gmail.com');
-  $userTwo = new User('Sam', 'sam@gmail.com');
-  $userThree = new AdminUser('yoshi', 'yoshi@gmail', 5);
-
-  echo $userThree->level . '<br>';
-  echo $userThree->username . '<br>';
-  echo $userThree->getEmail() . '<br>';
+// Strawberry is inherited from Fruit
+class Strawberry extends Fruit {
+  public function message() {
+    echo "Am I a fruit or a berry? ";
+  }
+}
+$strawberry = new Strawberry("Strawberry", "red");
+$strawberry->message();
+$strawberry->intro();
+?>
